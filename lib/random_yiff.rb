@@ -12,8 +12,9 @@ class RandomYiff
 
   attr_reader :post_uri
 
-  def initialize
+  def initialize(&block)
     @post_uri = RandomYiff.post_uri
+    instance_eval(&block) if block
   end
 
   def post

@@ -46,4 +46,10 @@ describe RandomYiff do
     end
   end
 
+  describe "#initialize" do
+    it "instance_evals blocks passed to it" do
+      expect{ RandomYiff.new { print file_ext }}.to output('jpg').to_stdout
+    end
+  end
+
 end
