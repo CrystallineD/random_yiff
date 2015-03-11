@@ -14,7 +14,7 @@ describe RandomYiff do
   end
 
   describe "#post_uri" do
-    it "Returns the uri of a random e621 post" do
+    it "Returns a uri for a random e621 post" do
       expect(yiff.send(:post_uri)).to eq(URI(random_post_uri))
     end
   end
