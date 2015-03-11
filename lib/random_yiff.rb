@@ -1,4 +1,6 @@
 require "net/http"
+require "json"
+
 require "random_yiff/version"
 
 class RandomYiff
