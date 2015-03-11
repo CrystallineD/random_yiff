@@ -29,7 +29,7 @@ class RandomYiff
   end
 
   def method_missing(m)
-    post.fetch("#{m}", false) || super
+    post["#{m}"] || super
   end
 
 end
