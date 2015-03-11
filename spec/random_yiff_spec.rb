@@ -10,7 +10,7 @@ describe RandomYiff do
   before do
     stub_request(:get, "https://e621.net/post/random").to_return(random_post_response)
     stub_request(:get, random_post_url).to_return(random_post_raw)
-    stub_request(:get, random_image_url)
+    stub_request(:get, random_image_url).to_return(body: 'yiff yiff yiff')
   end
 
   describe ".post_uri" do
@@ -35,6 +35,12 @@ describe RandomYiff do
     it "Download random furry pr0n" do
       RandomYiff.file
       expect(WebMock).to have_requested(:get, random_image_url)
+    end
+  end
+
+  describe "#initialize" do
+    it "Yields furry pr0n" do
+      expect{ |b| RandomYiff.new &b }.to yield_with_args('yiff yiff yiff')
     end
   end
 

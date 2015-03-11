@@ -22,4 +22,9 @@ class RandomYiff
       URI(res['location'] + '?format=json')
     end
   end
+
+  def initialize
+    yield RandomYiff.file
+  end
+
 end
