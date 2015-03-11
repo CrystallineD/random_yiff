@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "random_yiff"
   spec.version       = RandomYiff::VERSION
   spec.authors       = ["James Awesome"]
-  spec.email         = ["awesome@shopkeep.com"]
+  spec.email         = ["james@wesome.nyc"]
   spec.summary       = %q{Get random furry pr0n from e621.net}
   spec.homepage      = ""
   spec.license       = "MIT"
