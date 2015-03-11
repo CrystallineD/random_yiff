@@ -32,9 +32,9 @@ describe RandomYiff do
     end
   end
 
-  describe "#image" do
-    it "Returns a random furry image" do
-      yiff.image
+  describe "#file" do
+    it "Download random furry pr0n" do
+      yiff.file
       expect(WebMock).to have_requested(:get, random_image_url)
     end
   end

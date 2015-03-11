@@ -15,7 +15,7 @@ class RandomYiff
     URI(post['file_url'])
   end
 
-  def image
+  def file
     Net::HTTP.get(file_uri)
   end
 
