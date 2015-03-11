@@ -9,6 +9,14 @@ class RandomYiff
     @post = JSON.load(Net::HTTP.get(post_uri))
   end
 
+  def file_uri
+    URI(post['file_url'])
+  end
+
+  def image
+    Net::HTTP.get(file_uri)
+  end
+
   private
 
   def post_uri
