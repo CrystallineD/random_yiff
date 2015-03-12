@@ -5,4 +5,4 @@ bundler_args: --jobs 7
 gemfile:
   - Gemfile
 script:
-  - rspec
+  - rspec --format documentation --color
