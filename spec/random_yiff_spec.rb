@@ -15,7 +15,7 @@ describe RandomYiff do
   end
 
   describe '.post_uri' do
-    it 'Gets a random e621 post url' do
+    it 'Returns a uri object for a random e621 post' do
       RandomYiff.post_uri
       expect(WebMock).to have_requested(:get, 'https://e621.net/post/random')
     end
@@ -40,14 +40,14 @@ describe RandomYiff do
   end
 
   describe '#file' do
-    it 'Download random furry pr0n' do
+    it 'Download random furry pr0n file' do
       yiff.file
       expect(WebMock).to have_requested(:get, random_image_url)
     end
   end
 
   describe '#initialize' do
-    it 'instance_evals blocks passed to it' do
+    it 'yields self if block given' do
       expect { |b| RandomYiff.new(&b) }.to yield_with_args(RandomYiff)
     end
   end
