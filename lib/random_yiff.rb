@@ -31,5 +31,4 @@ class RandomYiff
   def method_missing(m)
     post["#{m}"] || super
   end
-
 end
