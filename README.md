@@ -1,4 +1,5 @@
 # RandomYiff
+[![Build Status](https://travis-ci.org/JamesAwesome/random_yiff.svg?branch=master)](https://travis-ci.org/JamesAwesome/random_yiff)
 
 Bring forth Random Furry pr0n, amaze your friends, scare normal people.
 
