@@ -1,6 +1,8 @@
 # RandomYiff
 
-TODO: Write a gem description
+Bring forth Random Furry pr0n, amaze your friends, scare normal people.
+
+RandomYiff will provide you with a random post from e621.net via their /post/random route.
 
 ## Installation
 
@@ -20,11 +22,62 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To return a random post URI
+
+```ruby
+RandomYiff.post_uri
+```
+
+Return the original post from e621.new
+
+```ruby
+yiff = RandomYiff.new
+yiff.post
+```
+
+Get a URI object for the post's file_url
+
+```ruby
+yiff = RandomYiff.new
+yiff.file_uri
+```
+
+Download the file from the posts file_url
+
+```ruby
+yiff = RandomYiff.new
+yiff.file
+```
+
+Instance methods are available via method_missing for all post parameters
+
+```ruby
+yiff = RandomYiff.new
+yiff.file_url #=> "https://e621.net/foo/bar"
+yiff.md5      #=> "b95477fdff6cb77ade50c7e0389c84a0"
+yiff.source   #=> "http://www.deviantart.com/foo/bar"
+```
+
+If provided a block yields self
+
+```ruby
+RandomYiff.new do |yiff|
+  File.open("#{yiff.md5}.#{yiff.file_ext}", 'w') do |f|
+    f.write yiff.file
+  end
+end
+```
+
+## Testing
+```ruby
+bundle install
+
+rake
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/random_yiff/fork )
+1. Fork it ( https://github.com/jamesawesome/random_yiff/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
