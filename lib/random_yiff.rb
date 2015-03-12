@@ -28,7 +28,7 @@ class RandomYiff
     Net::HTTP.get(file_uri)
   end
 
-  def method_missing(m)
-    post["#{m}"] || super
+  def method_missing(m, *args, &block)
+    post["#{m}"] || super(m, *args, &block)
   end
 end

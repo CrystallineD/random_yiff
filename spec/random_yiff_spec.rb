@@ -51,4 +51,10 @@ describe RandomYiff do
       expect { |b| RandomYiff.new(&b) }.to yield_with_args(RandomYiff)
     end
   end
+
+  describe '#not_a_method' do
+    it 'Raises NoMethodError' do
+      expect { yiff.not_a_method }.to raise_error(NoMethodError)
+    end
+  end
 end
