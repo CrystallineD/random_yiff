@@ -28,7 +28,7 @@ To return a random post URI
 RandomYiff.post_uri
 ```
 
-Return the original post from e621.new
+Return the original post from e621.net
 
 ```ruby
 yiff = RandomYiff.new
