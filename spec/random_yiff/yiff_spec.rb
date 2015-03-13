@@ -46,6 +46,12 @@ describe RandomYiff::Yiff do
     end
   end
 
+  describe '#file_name' do
+    it 'Returns the file name' do
+      expect(yiff.file_name).to eq('d7745463ef599bb21702fd173c103d41.jpg')
+    end
+  end
+
   describe '#initialize' do
     it 'yields self if block given' do
       expect { |b| RandomYiff::Yiff.new(&b) }

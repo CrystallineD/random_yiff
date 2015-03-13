@@ -20,6 +20,10 @@ module RandomYiff
       URI(file_url)
     end
 
+    def file_name
+      "#{md5}.#{file_ext}"
+    end
+
     def file
       Net::HTTP.get(file_uri)
     end
