@@ -48,7 +48,8 @@ describe RandomYiff::Yiff do
 
   describe '#initialize' do
     it 'yields self if block given' do
-      expect { |b| RandomYiff::Yiff.new(&b) }.to yield_with_args(RandomYiff::Yiff)
+      expect { |b| RandomYiff::Yiff.new(&b) }
+        .to yield_with_args(RandomYiff::Yiff)
     end
   end
 
