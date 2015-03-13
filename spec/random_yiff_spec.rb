@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe RandomYiff do
+describe RandomYiff::Yiff do
   random_post_response = File.read('spec/fixtures/random_post_response.txt')
   random_post_raw = File.read('spec/fixtures/random_post.txt')
   random_post_json = JSON.load(File.read('spec/fixtures/random_post.json'))
   random_post_url = 'https://e621.net/post/show/141529/azazial-breasts-cellphone-claws-clothed-clothing-f?format=json'
   random_image_url = 'https://static1.e621.net/data/d7/74/d7745463ef599bb21702fd173c103d41.jpg'
-  subject(:yiff) { RandomYiff.new }
+  subject(:yiff) { RandomYiff::Yiff.new }
 
   before do
     stub_request(:get, 'https://e621.net/post/random').to_return(random_post_response)
@@ -16,7 +16,7 @@ describe RandomYiff do
 
   describe '.post_uri' do
     it 'Returns a uri object for a random e621 post' do
-      RandomYiff.post_uri
+      RandomYiff::Yiff.post_uri
       expect(WebMock).to have_requested(:get, 'https://e621.net/post/random')
     end
   end
@@ -48,7 +48,7 @@ describe RandomYiff do
 
   describe '#initialize' do
     it 'yields self if block given' do
-      expect { |b| RandomYiff.new(&b) }.to yield_with_args(RandomYiff)
+      expect { |b| RandomYiff::Yiff.new(&b) }.to yield_with_args(RandomYiff::Yiff)
     end
   end
 
