@@ -13,7 +13,7 @@ module RandomYiff
     end
 
     def post
-      JSON.load(Net::HTTP.get(post_uri))
+      @post ||= JSON.load(Net::HTTP.get(post_uri))
     end
 
     def file_uri
