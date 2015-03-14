@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(/^bin\//) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(/^(test|spec|features)\//)
-  spec.require_paths = ['lib', 'bin']
+  spec.require_paths = %w(lib, bin)
 
   spec.add_dependency 'thor'
   spec.add_dependency 'launchy'
