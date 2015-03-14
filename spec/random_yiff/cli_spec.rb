@@ -11,9 +11,9 @@ describe RandomYiff::Cli do
 
   describe '#open' do
     it 'opens random furry pr0n via Launchy' do
-      allow(Launchy).to receive(:open).with(random_image_url)
+      allow(Launchy).to receive(:open).with(e621_image_url)
       RandomYiff::Cli.start
-      expect(Launchy).to have_received(:open).with(random_image_url)
+      expect(Launchy).to have_received(:open).with(e621_image_url)
     end
   end
 end
