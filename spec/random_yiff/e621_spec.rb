@@ -1,18 +1,8 @@
 require 'spec_helper'
 
 describe RandomYiff::E621 do
-  random_post_response = File.read('spec/fixtures/random_post_response.txt')
-  random_post_raw = File.read('spec/fixtures/random_post.txt')
-  random_post_json = JSON.load(File.read('spec/fixtures/random_post.json'))
-  random_post_url = 'https://e621.net/post/show/141529/azazial-breasts-cellphone-claws-clothed-clothing-f?format=json'
-  random_image_url = 'https://static1.e621.net/data/d7/74/d7745463ef599bb21702fd173c103d41.jpg'
+  include_context :e621
   subject(:yiff) { RandomYiff::E621.new }
-
-  before do
-    stub_request(:get, 'https://e621.net/post/random').to_return(random_post_response)
-    stub_request(:get, random_post_url).to_return(random_post_raw)
-    stub_request(:get, random_image_url)
-  end
 
   describe '.post_uri' do
     it 'Returns a uri object for a random e621 post' do

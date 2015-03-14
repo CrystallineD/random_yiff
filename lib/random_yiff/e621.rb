@@ -1,3 +1,6 @@
+require 'json'
+require 'net/http'
+
 module RandomYiff
   class E621
     def self.post_uri
