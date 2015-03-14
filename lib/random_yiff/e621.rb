@@ -1,19 +1,16 @@
 module RandomYiff
-  class Yiff
+  class E621
     def self.post_uri
       res = Net::HTTP.get_response(URI('https://e621.net/post/random'))
       URI(res['location'] + '?format=json')
     end
 
-    attr_reader :post_uri
+    attr_reader :post_uri, :post
 
     def initialize
       @post_uri = self.class.post_uri
+      @post = JSON.load(Net::HTTP.get(post_uri))
       yield self if block_given?
-    end
-
-    def post
-      @post ||= JSON.load(Net::HTTP.get(post_uri))
     end
 
     def file_uri
