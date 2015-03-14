@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'random_yiff'
 require 'random_yiff/cli'
 
 RandomYiff::Cli.start
