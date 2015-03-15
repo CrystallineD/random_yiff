@@ -36,4 +36,14 @@ describe RandomYiff::Cli do
       end
     end
   end
+
+  describe '#ascii' do
+    let(:furry_pr0n) { instance_double(AsciiArt) }
+    it 'prints a random furry pr0n image as ascii' do
+      allow(AsciiArt).to receive(:new).and_return(furry_pr0n)
+      allow(furry_pr0n).to receive(:to_ascii_art).and_return('yiff')
+      expect { RandomYiff::Cli.start(['ascii']) }
+        .to output("yiff\n").to_stdout
+    end
+  end
 end
