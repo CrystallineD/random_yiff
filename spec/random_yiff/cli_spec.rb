@@ -46,4 +46,11 @@ describe RandomYiff::Cli do
         .to output("yiff\n").to_stdout
     end
   end
+
+  describe '#random_file' do
+    it 'rejects flv files' do
+      allow(RandomYiff::E621).to receive(:file_ext).and_return('flv')
+      expect { RandomYiff::Cli.send(:random_yiff) }.to raise_error
+    end
+  end
 end
