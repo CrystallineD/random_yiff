@@ -23,14 +23,16 @@ describe RandomYiff::Cli do
     context 'When called without options' do
       it 'downloads random furry pr0n to pwd' do
         RandomYiff::Cli.start(['download'])
-        expect(File).to have_received(:write).with("./#{e621_image_name}", 'yiff')
+        expect(File).to have_received(:write)
+          .with("./#{e621_image_name}", 'yiff')
       end
     end
 
     context 'When called with `path` option' do
       it 'downloads random furry pr0n into path provided' do
         RandomYiff::Cli.start(%w(download --path /foo))
-        expect(File).to have_received(:write).with("/foo/#{e621_image_name}", 'yiff')
+        expect(File).to have_received(:write)
+          .with("/foo/#{e621_image_name}", 'yiff')
       end
     end
   end
