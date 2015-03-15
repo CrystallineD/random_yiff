@@ -37,6 +37,6 @@ RSpec.shared_context :e621 do
   before do
     stub_request(:get, e621_random_route).to_return(e621_post_response)
     stub_request(:get, e621_post_url).to_return(e621_post_raw)
-    stub_request(:get, e621_image_url)
+    stub_request(:get, e621_image_url).to_return(body: 'yiff')
   end
 end

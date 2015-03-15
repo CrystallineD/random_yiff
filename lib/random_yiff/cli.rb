@@ -24,14 +24,12 @@ module RandomYiff
     method_option :path,
                   desc: 'path of directory to download furry pr0n into',
                   type: :string,
-                  default: Dir.pwd
+                  default: './'
 
     def download
       RandomYiff::E621.new do |yiff|
         path = File.join(options[:path], yiff.file_name)
-        File.open(path, 'w') do |f|
-          f.write(yiff.file)
-        end
+        File.write(path, yiff.file)
       end
     end
 
