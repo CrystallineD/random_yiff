@@ -47,10 +47,14 @@ describe RandomYiff::Cli do
     end
   end
 
-  describe '#random_file' do
-    it 'rejects flv files' do
-      allow(RandomYiff::E621).to receive(:file_ext).and_return('flv')
-      expect { RandomYiff::Cli.send(:random_yiff) }.to raise_error
+  describe '#random_image' do
+    subject(:cli) { RandomYiff::Cli.new }
+
+    it 'reinitializes RandomYiff::E621 until it finds an image' do
+      furry_pr0n = double(RandomYiff::E621)
+      expect(RandomYiff::E621).to receive(:new).twice.and_yield(furry_pr0n)
+      expect(furry_pr0n).to receive(:file_ext).twice.and_return('flv', 'jpg')
+      cli.send(:random_image)
     end
   end
 end
