@@ -2,9 +2,15 @@
 [![Build Status](https://travis-ci.org/JamesAwesome/random_yiff.svg?branch=master)](https://travis-ci.org/JamesAwesome/random_yiff)
 [![Coverage Status](https://coveralls.io/repos/JamesAwesome/random_yiff/badge.svg)](https://coveralls.io/r/JamesAwesome/random_yiff)
 
-Bring forth Random Furry pr0n, amaze your friends, scare normal people.
-
 RandomYiff will provide you with a random post from e621.net via their /post/random route.
+
+The RandomYiff gem is both a library and a CLI app named `yiff`.
+
+The `RandomYiff::E621` class allows a user to get a random post from e621. Helper methods such
+as `#file` allow the user to access the furry pr0n associated with said e621 post with ease.
+
+The `yiff` command allows users to open furry pr0n in browser, download furry pr0n and
+even print furry pr0n in terminal as colored ascii.
 
 ## Installation
 
@@ -24,10 +30,10 @@ Or install it yourself as:
 
 ## Usage
 
-As a cli app
+For CLI app usage
 
 ```bash
-yiff
+yiff help
 ```
 
 To return a random post URI
