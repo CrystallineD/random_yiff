@@ -11,8 +11,7 @@ The RandomYiff gem is both a library and a CLI app named `yiff`.
 The `RandomYiff::E621` class allows a user to get a random post from e621. Helper methods such
 as `#file` allow the user to access the furry pr0n associated with said e621 post with ease.
 
-The `yiff` command allows users to open furry pr0n in browser, download furry pr0n and
-even print furry pr0n in terminal as colored ascii.
+The `yiff` command allows users to open furry pr0n in browser or download furry pr0n to disk.
 
 ## Installation
 
