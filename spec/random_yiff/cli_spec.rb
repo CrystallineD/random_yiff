@@ -38,12 +38,28 @@ describe RandomYiff::Cli do
   end
 
   describe '#ascii' do
-    let(:furry_pr0n) { instance_double(AsciiArt) }
-    it 'prints a random furry pr0n image as ascii' do
+    before do
       allow(AsciiArt).to receive(:new).and_return(furry_pr0n)
-      allow(furry_pr0n).to receive(:to_ascii_art).and_return('yiff')
+    end
+
+    let(:furry_pr0n) { instance_double(AsciiArt) }
+
+    it 'prints a random furry pr0n image as ascii' do
+      expect(furry_pr0n).to receive(:to_ascii_art)
+        .with(color: true)
+        .and_return('yiff')
       expect { RandomYiff::Cli.start(['ascii']) }
         .to output("yiff\n").to_stdout
+    end
+
+    context 'when given a width via method option' do
+      it 'prints random furry pr0n with width specified' do
+        expect(furry_pr0n).to receive(:to_ascii_art)
+          .with(color: true, width: 160)
+          .and_return('yiff')
+        expect { RandomYiff::Cli.start(%w(ascii --width 160)) }
+          .to output("yiff\n").to_stdout
+      end
     end
   end
 

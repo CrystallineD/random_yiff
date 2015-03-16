@@ -14,9 +14,16 @@ module RandomYiff
 
     desc 'ascii', 'Print furry pr0n as ascii'
 
+    method_option :width,
+                  desc: 'width to limit ascii to',
+                  type: :numeric,
+                  default: nil
+
     def ascii
       yiff = random_image
-      puts AsciiArt.new(yiff.file_url).to_ascii_art(color: true, width: 160)
+      ascii_opts = { color: true }
+      ascii_opts.merge!(width: options[:width]) if options[:width]
+      puts AsciiArt.new(yiff.file_url).to_ascii_art(ascii_opts)
     end
 
     desc 'download', 'Download furry pr0n'
