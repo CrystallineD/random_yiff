@@ -48,10 +48,14 @@ module RandomYiff
 
     def random_image
       RandomYiff::E621.new do |yiff|
-        fail NotAnImage if yiff.file_ext == 'flv'
+        fail NotAnImage if non_image_formats.include?(yiff.file_ext)
       end
     rescue NotAnImage
       random_image
+    end
+
+    def non_image_formats
+      ['flv']
     end
   end
 end
