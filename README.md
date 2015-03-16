@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/JamesAwesome/random_yiff.svg?branch=master)](https://travis-ci.org/JamesAwesome/random_yiff)
 [![Coverage Status](https://coveralls.io/repos/JamesAwesome/random_yiff/badge.svg)](https://coveralls.io/r/JamesAwesome/random_yiff)
 [![Gem Version](https://badge.fury.io/rb/random_yiff.svg)](http://badge.fury.io/rb/random_yiff)
+[![Code Climate](https://codeclimate.com/github/JamesAwesome/random_yiff/badges/gpa.svg)](https://codeclimate.com/github/JamesAwesome/random_yiff)
 # RandomYiff
 
 RandomYiff will provide you with a random post from e621.net via their /post/random route.
