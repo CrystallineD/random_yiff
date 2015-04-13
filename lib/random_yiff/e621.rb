@@ -28,6 +28,10 @@ module RandomYiff
       Net::HTTP.get(file_uri)
     end
 
+    def source
+      post['source'] || 'Unknown'
+    end
+
     def method_missing(m, *args, &block)
       post["#{m}"] || super(m, *args, &block)
     end

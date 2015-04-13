@@ -36,6 +36,17 @@ describe RandomYiff::E621 do
     end
   end
 
+  describe '#source' do
+    it 'Returns a string' do
+      expect(yiff.source).to be_a(String)
+    end
+
+    it 'Returns Unknown if post source is not set' do
+      allow(yiff).to receive(:post).and_return({})
+      expect(yiff.source).to eq('Unknown')
+    end
+  end
+
   describe '#file_name' do
     it 'Returns the file name' do
       expect(yiff.file_name).to eq(e621_image_name)
