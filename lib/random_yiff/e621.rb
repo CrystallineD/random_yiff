@@ -17,19 +17,19 @@ module RandomYiff
     end
 
     def file_uri
-      URI(file_url)
+      @file_uri ||= URI(file_url)
     end
 
     def file_name
-      "#{md5}.#{file_ext}"
+      @file_name ||= "#{md5}.#{file_ext}"
     end
 
     def file
-      Net::HTTP.get(file_uri)
+      @file ||= Net::HTTP.get(file_uri)
     end
 
     def source
-      post['source'] || 'Unknown'
+      @source ||= post['source'] || 'Unknown'
     end
 
     def method_missing(m, *args, &block)
