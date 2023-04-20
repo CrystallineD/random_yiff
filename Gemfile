@@ -7,3 +7,5 @@ gem 'random_yiff'
 
 
 $ bundle
+
+randomyiff::E621.post_uri
